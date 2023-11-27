@@ -15,7 +15,7 @@ const Comments = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/showComments')
+    fetch('http://localhost:5000/api/showComments')
       .then(response => response.json())
       .then(data => setComments(data.comments))
       .catch(error => console.error('Error al obtener comentarios:', error));

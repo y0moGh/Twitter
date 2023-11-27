@@ -1,12 +1,15 @@
 .post-container {
   margin-bottom: 5px;
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 5px;
-  color: black;
+  color: rgb(0, 0, 0);
   text-align: center;
-  margin: 0 auto; /* Centrar horizontalmente */
-  max-width: 800px; /* Establecer un ancho máximo */
-  width: 100%; /* Adaptarse al contenido */
+  margin: 0 auto;
+  /* Centrar horizontalmente */
+  max-width: 800px;
+  /* Establecer un ancho máximo */
+  width: 100%;
+  /* Adaptarse al contenido */
   box-shadow: 10px 7px 20px rgba(255, 218, 11);
   border-radius: 40px;
 }

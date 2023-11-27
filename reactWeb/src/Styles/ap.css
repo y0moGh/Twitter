@@ -15,7 +15,8 @@ button {
   margin: 10px;
   font-weight: bold;
   color: rgb(255, 255, 255);
-  background-color: #00000074; /* Color de fondo del botón */
+  background-color: #00000074;
+  /* Color de fondo del botón */
   box-shadow: 4px 2px 5px rgba(255, 218, 11);
 }
 
@@ -24,10 +25,11 @@ button {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
- 
+
 }
 
 .lista li {
+
   margin-bottom: 5px;
   margin: 6px;
 }
@@ -39,9 +41,9 @@ link {
 .lista li div {
   padding: 10px;
   background-color: rgb(255, 255, 255);
-  color: black;
+  color: rgb(255, 255, 255);
   box-shadow: 2px 2px 10px rgba(255, 218, 11);
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
 .lista li div a {
@@ -53,6 +55,11 @@ link {
 }
 
 a {
-  color: black;
+  color: rgb(255, 255, 255);
   text-align: center;
+}
+
+a:hover {
+  color: yellow;
+  /* Cambia el color de los enlaces al pasar el cursor sobre ellos */
 }

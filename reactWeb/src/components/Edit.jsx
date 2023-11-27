@@ -15,7 +15,7 @@ const Edit = () => {
 
   useEffect(() => {
     // Hacer la solicitud a la API para obtener los detalles del post
-    fetch(`http://localhost:5000/api/showPosts/${intId}`)
+    fetch(`https://twitterflaskapi.pythonanywhere.com/api/showPosts/${intId}`)
       .then((response) => response.json())
       .then((data) => {
         // Actualizar los estados solo si los datos del post existen
@@ -26,9 +26,9 @@ const Edit = () => {
         }
       })
       .catch((error) => console.error('Error al obtener detalles del post:', error));
-    
-      const username = Requests.getCookieValue('username')
-      if (username) setUser(username)
+
+    const username = Requests.getCookieValue('username')
+    if (username) setUser(username)
 
   }, [intId]);
 
@@ -51,7 +51,7 @@ const Edit = () => {
         navigate(`/posts/${intId}`);
       })
       .catch((error) => console.error('Error al actualizar el post:', error));
-    
+
   };
 
   return (
@@ -80,8 +80,8 @@ const Edit = () => {
         </form>
       )}
     </>
-      );
-  
+  );
+
 };
 
 export default Edit;

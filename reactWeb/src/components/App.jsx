@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     // Segunda solicitud para obtener la lista de posts
-    fetch('http://127.0.0.1:5000/api/showPosts')
+    fetch('http://localhost:5000/api/showPosts')
       .then(response => {
         if (!response.ok) {
           throw new Error('La solicitud no fue exitosa');
@@ -50,37 +50,39 @@ function App() {
   };
 
   const handleLogout = () => {
-  
+
     document.cookie = 'username=; e<button onClick={handleLogout}>Logout</button>'
     window.location.reload()
   }
 
   return (
     <>
-    {user ? <h1>Hola {user}</h1> : <h1>Bienvenido</h1>}
-    
-    <div className='div'>
-      <Link to={'/create'}><button>Create</button></Link>
-      <Link to={'/register'}><button>Register</button></Link>
-      <Link to={'/login'}><button>Login</button></Link>
-      {user && <button className='edi' onClick={handleLogout}>Logout</button>}
-    </div>
+      {user ? <h1>Hola {user}</h1> : <h1>Bienvenido</h1>}
 
-    <ul className='lista'>  
-      {posts.map((post) => (
-        <li key={post.id}>
-          <Link to={`/posts/${post.id}`}>
-            <strong>{post.title}</strong>
-          </Link>
-          {user === "Admin" && (
+      <div className='div'>
+        <Link to={'/create'}><button>Create</button></Link>
+        <Link to={'/register'}><button>Register</button></Link>
+        <Link to={'/login'}><button>Login</button></Link>
+        {user && <button className='edi' onClick={handleLogout}>Logout</button>}
+      </div>
+
+      <ul className='lista'>
+        {posts.map((post) => (
+          <li key={post.id}>
+            <Link to={`/posts/${post.id}`}>
+              <button>
+                <strong>{post.title}</strong>
+              </button>
+            </Link>
+            {user === "Admin" && (
               <>
                 <button className='edi' onClick={() => handleDelete(post.id)}>Delete</button>
                 <Link to={`/edit/${post.id}`}> <button className='edi'>Edit</button> </Link>
               </>
             )}
-        </li>
-      ))}
-    </ul>
+          </li>
+        ))}
+      </ul >
     </>
   )
 }
