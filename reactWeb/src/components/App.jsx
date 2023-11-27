@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Router, Route, Link, useParams } from 'react-router-dom';
 import Requests from './Requests';
+import '../Styles/ap.css'
 
 function App() {
 
@@ -57,15 +58,15 @@ function App() {
   return (
     <>
     {user ? <h1>Hola {user}</h1> : <h1>Bienvenido</h1>}
-    <Link to={'/create'}><button>Create</button></Link>
-
-    <Link to={'/register'}><button>Register</button></Link>
     
-    <Link to={'/login'}><button>Login</button></Link>
+    <div className='div'>
+      <Link to={'/create'}><button>Create</button></Link>
+      <Link to={'/register'}><button>Register</button></Link>
+      <Link to={'/login'}><button>Login</button></Link>
+      {user && <button className='edi' onClick={handleLogout}>Logout</button>}
+    </div>
 
-    {user && <button onClick={handleLogout}>Logout</button>}
-
-    <ul>
+    <ul className='lista'>  
       {posts.map((post) => (
         <li key={post.id}>
           <Link to={`/posts/${post.id}`}>
@@ -73,8 +74,8 @@ function App() {
           </Link>
           {user === "Admin" && (
               <>
-                <button onClick={() => handleDelete(post.id)}>Delete</button>
-                <Link to={`/edit/${post.id}`}> <button>Edit</button> </Link>
+                <button className='edi' onClick={() => handleDelete(post.id)}>Delete</button>
+                <Link to={`/edit/${post.id}`}> <button className='edi'>Edit</button> </Link>
               </>
             )}
         </li>

@@ -1,0 +1,29 @@
+.post-container {
+  margin-bottom: 5px;
+  background-color: #fff;
+  padding: 5px;
+  color: black;
+  text-align: center;
+  margin: 0 auto; /* Centrar horizontalmente */
+  max-width: 800px; /* Establecer un ancho máximo */
+  width: 100%; /* Adaptarse al contenido */
+  box-shadow: 10px 7px 20px rgba(255, 218, 11);
+  border-radius: 40px;
+}
+
+.post-wrapper {
+  background-color: white;
+  padding: 20px;
+}
+
+.post-title {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: none;
+}
+
+.post-content {
+  font-size: 25px;
+  margin-bottom: 20px;
+}

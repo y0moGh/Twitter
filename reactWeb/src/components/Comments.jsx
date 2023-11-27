@@ -3,6 +3,7 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useNavigate } from 'react-router-dom';
 import Requests from './Requests.jsx';
+import '../Styles/co.css'
 
 const Comments = (props) => {
   const { ID } = props;
@@ -46,10 +47,11 @@ const Comments = (props) => {
   const filteredComments = comments.filter(comment => comment.postId === ID);
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder='Title' value={title} onChange={e => setTitle(e.target.value)} />
+    <div className='comment-container'>
+      <form className='comment-form' onSubmit={handleSubmit}>
+        <input className='comment-input' type="text" placeholder='Title' value={title} onChange={e => setTitle(e.target.value)} />
         <textarea
+          className='comment-textarea'
           onChange={(e) => setContent(e.target.value)}
           name="content"
           value={content}
@@ -59,16 +61,16 @@ const Comments = (props) => {
           placeholder="Write your comment in .md"
         >
         </textarea>
-        <button type="submit">Submit</button>
+        <button className='comment-submit' type="submit">Submit</button>
       </form>
 
-      <h3>Comments</h3>
+      <h3 className='comment-heading'>Comments</h3>
 
       {filteredComments.map((comment, i) => (
-        <div key={i}>
-          <h5>{comment.author}</h5>
-          <h4>{comment.title}</h4>
-          <Markdown remarkPlugins={[remarkGfm]}>{comment.content}</Markdown>
+        <div className='comment' key={i}>
+          <h5 className='comment-author'>{comment.author}</h5>
+          <h4 className='comment-title'>{comment.title}</h4>
+          <Markdown className='comment-content' remarkPlugins={[remarkGfm]}>{comment.content}</Markdown>
           <br />
         </div>
       ))}

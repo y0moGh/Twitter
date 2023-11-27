@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Requests from './Requests';
+import '../Styles/ed.css'
 
 const Edit = () => {
   let { id } = useParams();
@@ -56,13 +57,14 @@ const Edit = () => {
   return (
     <>
       {user === "Admin" && (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="conditional-form">
           <h3>{author}</h3>
           <input
             type="text"
             value={title}
             placeholder="Title"
             onChange={(e) => setTitle(e.target.value)}
+            className="form-input"
           />
           <textarea
             onChange={(e) => setContent(e.target.value)}
@@ -72,12 +74,13 @@ const Edit = () => {
             rows="10"
             spellCheck="false"
             placeholder="Edit your post in .md"
+            className="form-textarea"
           ></textarea>
-          <button type="submit">Submit</button>
+          <button type="submit" className="form-button">Submit</button>
         </form>
       )}
     </>
-  );
+      );
   
 };
 

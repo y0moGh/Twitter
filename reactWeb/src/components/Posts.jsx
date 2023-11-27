@@ -3,6 +3,7 @@ import { Router, Route, Link, useParams, json } from 'react-router-dom';
 import Comments from './Comments';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import '../Styles/po.css'
 
 const Posts = () => {
   const [posts, setPosts] = useState([])
@@ -30,16 +31,21 @@ const Posts = () => {
   if (!post) return <div>Post not found</div>;
   
   return (
-    <div>
-        <Link to={'/'}> <button>Home</button> </Link>
-        
-        <h4>By {post.author}</h4>
-        <h1>{post.title}</h1>
-        <Markdown remarkPlugins={[remarkGfm]}>{post.content}</Markdown>
-
-        <Comments ID={postId} />
-    </div>
-  )
+    <>
+        <Link to={'/'}><button className="home-button">Home</button></Link>
+        <div className="post-container" style={{ backgroundImage: "url('fondo.jpg')" }}>
+          <div className="post-card">
+            <h4 className="post-author">By {post.author}</h4>
+            <h1 className="post-title">{post.title}</h1>
+            <Markdown className="post-content" remarkPlugins={[remarkGfm]}>{post.content}</Markdown>
+          </div>
+          <div className="comments-section">
+            <h3 className="comment-heading">Comments</h3>
+            <Comments ID={postId} />
+          </div>
+        </div>
+        </>
+      );
 }
 
 export default Posts

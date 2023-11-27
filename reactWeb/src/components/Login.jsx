@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Requests from './Requests';
 import { useNavigate } from 'react-router-dom';
+import '../Styles/log.css'
 
 const Login = () => {
   const [user, setUser] = useState('');
@@ -30,7 +31,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="login-container">
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <input
